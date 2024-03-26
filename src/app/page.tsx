@@ -1,19 +1,18 @@
 import Link from "next/link";
-import Item from "./item";
 
-const getPosts = async () => {
-  // Because this is server components, we have to define the URL with http
-  const res = await fetch(process.env.BASE_URL + "/api/post", {
-    next: { revalidate: 0 },
-  });
+// const getPosts = async () => {
+//   // Because this is server components, we have to define the URL with http
+//   const res = await fetch(process.env.BASE_URL + "/api/post", {
+//     next: { revalidate: 0 },
+//   });
 
-  // Define the output to json, because if only res, it will return by any type
-  const json = await res.json();
-  return json;
-};
+//   // Define the output to json, because if only res, it will return by any type
+//   const json = await res.json();
+//   return json;
+// };
 
 const Page = async () => {
-  const posts = await getPosts();
+  // const posts = await getPosts();
 
   return (
     <div className="w-[1200px] mx-auto py-20">
@@ -26,10 +25,10 @@ const Page = async () => {
       </Link>
 
       <div className="grid grid-cols-3 gap-5 mt-8">
-        {posts?.posts
+        {/* {posts?.posts
           ?.map((post: any, i: number) => <Item key={i} post={post} />)
           .sort()
-          .reverse()}
+          .reverse()} */}
       </div>
     </div>
   );
